@@ -8,6 +8,8 @@ vim.pack.add({
   "https://codeberg.org/andyg/leap.nvim",
   "https://github.com/junegunn/fzf",
   "https://github.com/junegunn/fzf.vim",
+  "https://github.com/sbdchd/neoformat",
+  "https://github.com/folke/tokyonight.nvim",
 })
 
 require "configs.treesitter"
@@ -17,4 +19,5 @@ require "configs.nvim-tree"
 require "configs.neoscroll"
 require "configs.leap"
 require "configs.fzf"
-
+require "configs.neoformat"
+require "configs.tokyo"
