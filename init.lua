@@ -15,3 +15,4 @@ vim.o.backup = false
 vim.o.scrolloff = 4
 
 require "plugins"
+require "keymaps"
