@@ -3,6 +3,7 @@ vim.g.mapleader = ' '
 
 -- Options config
 vim.o.number = true
+vim.o.relativenumber = true
 
 -- for search
 vim.o.ignorecase = true
