@@ -6,6 +6,8 @@ vim.pack.add({
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/karb94/neoscroll.nvim",
   "https://codeberg.org/andyg/leap.nvim",
+  "https://github.com/junegunn/fzf",
+  "https://github.com/junegunn/fzf.vim",
 })
 
 require "configs.treesitter"
@@ -14,4 +16,5 @@ require "configs.lualine"
 require "configs.nvim-tree"
 require "configs.neoscroll"
 require "configs.leap"
+require "configs.fzf"
 

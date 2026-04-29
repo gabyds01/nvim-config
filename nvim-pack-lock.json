@@ -4,6 +4,14 @@
       "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
     },
+    "fzf": {
+      "rev": "6fefe025461b168eac2546ccba3403b70eb5da16",
+      "src": "https://github.com/junegunn/fzf"
+    },
+    "fzf.vim": {
+      "rev": "b9624aa012ddcbae9e79964bfd30cc1fbe3cf263",
+      "src": "https://github.com/junegunn/fzf.vim"
+    },
     "leap.nvim": {
       "rev": "156c71aabb68d520c6269db4103c8e5580e3ea67",
       "src": "https://codeberg.org/andyg/leap.nvim"
