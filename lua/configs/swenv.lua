@@ -1,29 +1,60 @@
 require('swenv').setup({
-  -- Función personalizada para listar los entornos virtuales
+  -- Función inteligente para detectar entornos virtuales locales y ascendentes
   get_venvs = function(venv_folder)
     local api = require('swenv.api')
-    -- Obtener entornos estándar del path centralizado
     local venvs = api.get_venvs(venv_folder) or {}
+    local added_paths = {}
 
-    -- Escanear la raíz del proyecto actual buscando entornos locales (.venv o env)
-    local cwd = vim.fn.getcwd()
-    
-    local local_venv = cwd .. '/.venv'
-    if vim.fn.isdirectory(local_venv) == 1 then
-      table.insert(venvs, {
-        name = '.venv (Local del Proyecto)',
-        path = local_venv,
-        source = 'local',
-      })
+    -- Registrar rutas ya existentes para evitar duplicados
+    for _, v in ipairs(venvs) do
+      local norm = v.path:gsub("/+$", "")
+      added_paths[norm] = true
     end
-    
-    local local_env = cwd .. '/env'
-    if vim.fn.isdirectory(local_env) == 1 then
-      table.insert(venvs, {
-        name = 'env (Local del Proyecto)',
-        path = local_env,
-        source = 'local',
+
+    -- Función auxiliar para insertar entornos de forma segura y deduplicada
+    local function add_venv(name, path, source)
+      local norm_path = path:gsub("/+$", "")
+      if not added_paths[norm_path] and vim.fn.isdirectory(norm_path) == 1 then
+        table.insert(venvs, {
+          name = name,
+          path = norm_path,
+          source = source,
+        })
+        added_paths[norm_path] = true
+      end
+    end
+
+    -- 1. Buscar en el directorio de trabajo actual (raíz donde abriste Neovim)
+    local cwd = vim.fn.getcwd()
+    add_venv('.venv (Raíz del proyecto)', cwd .. '/.venv', 'local_cwd')
+    add_venv('env (Raíz del proyecto)', cwd .. '/env', 'local_cwd')
+
+    -- 2. Buscar hacia arriba desde el archivo actual (ideal para multiproyectos/monorepos)
+    local current_file = vim.api.nvim_buf_get_name(0)
+    if current_file and current_file ~= "" then
+      local file_dir = vim.fs.dirname(current_file)
+
+      -- Buscar .venv hacia arriba
+      local venv_matches = vim.fs.find('.venv', {
+        upward = true,
+        path = file_dir,
+        limit = 1,
+        type = 'directory',
       })
+      if #venv_matches > 0 then
+        add_venv('.venv (Subproyecto de este archivo)', venv_matches[1], 'local_upward')
+      end
+
+      -- Buscar env hacia arriba
+      local env_matches = vim.fs.find('env', {
+        upward = true,
+        path = file_dir,
+        limit = 1,
+        type = 'directory',
+      })
+      if #env_matches > 0 then
+        add_venv('env (Subproyecto de este archivo)', env_matches[1], 'local_upward')
+      end
     end
 
     return venvs
