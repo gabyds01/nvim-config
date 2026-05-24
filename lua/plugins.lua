@@ -23,6 +23,7 @@ vim.pack.add({
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/akinsho/toggleterm.nvim",
   "https://github.com/christoomey/vim-tmux-navigator",
+  "https://github.com/kiddos/gemini.nvim",
 })
 
 require "configs.treesitter"
@@ -42,3 +43,4 @@ require "configs.which-key"
 require "configs.bufferline"
 require "configs.surround"
 require "configs.toggleterm"
+require "configs.gemini"
