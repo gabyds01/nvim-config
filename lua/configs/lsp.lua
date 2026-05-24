@@ -1,6 +1,11 @@
 local cmp = require('cmp')
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.snippet.expand(args.body)
+    end,
+  },
   mapping = {
     ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
@@ -34,7 +39,8 @@ cmp.setup({
   },
   experimental = { ghost_text = false },
   window = {
-    documentation = { border = "rounded" },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
 })
 
@@ -44,11 +50,14 @@ local lsp_servers = {
   'json',
   'lua',
   'pyright',
+  'hls',
 }
 
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
+vim.lsp.config('*', {
+  capabilities = lsp_capabilities,
+})
 
 local function on_attach(client, bufnr)
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -62,6 +71,14 @@ local function on_attach(client, bufnr)
     vim.diagnostic.open_float(nil, { focusable = true })
   end, bufopts)
 end
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local bufnr = args.buf
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    on_attach(client, bufnr)
+  end,
+})
 
 
 vim.lsp.config('lua', {
@@ -91,6 +108,10 @@ vim.lsp.config('pyright', {
   },
 })
 
+vim.lsp.config('hls', {
+  cmd = { 'haskell-langserver', '--stdio' },
+  filetypes = { 'haskell' }
+})
 
 vim.lsp.enable(lsp_servers)
 

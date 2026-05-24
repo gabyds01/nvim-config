@@ -1,7 +1,7 @@
 vim.keymap.set({'n', 'x', 'o'}, 's', '<Plug>(leap)')
 vim.keymap.set('n',             'S', '<Plug>(leap-from-window)')
 
--- Open nerdtree with ,nt and ,nf
+-- Open nvimtree
 vim.api.nvim_set_keymap('n', '<Leader>nt', ':NvimTreeToggle<CR>', { silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>nf', ':NvimTreeFindFile<CR>', { silent = true })
 
