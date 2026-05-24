@@ -16,6 +16,11 @@ vim.pack.add({
   "https://github.com/tpope/vim-fugitive",
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/AckslD/swenv.nvim",
+  "https://github.com/windwp/nvim-autopairs",
+  "https://github.com/numToStr/Comment.nvim",
+  "https://github.com/folke/which-key.nvim",
+  "https://github.com/akinsho/bufferline.nvim",
+  "https://github.com/kylechui/nvim-surround",
 })
 
 require "configs.treesitter"
@@ -29,3 +34,8 @@ require "configs.neoformat"
 require "configs.tokyo"
 require "configs.gitsigns"
 require "configs.swenv"
+require "configs.autopairs"
+require "configs.comment"
+require "configs.which-key"
+require "configs.bufferline"
+require "configs.surround"
