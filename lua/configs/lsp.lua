@@ -51,6 +51,8 @@ local lsp_servers = {
   'lua',
   'pyright',
   'hls',
+  'clangd',
+  'rust_analyzer',
 }
 
 
@@ -111,6 +113,16 @@ vim.lsp.config('pyright', {
 vim.lsp.config('hls', {
   cmd = { 'haskell-langserver', '--stdio' },
   filetypes = { 'haskell' }
+})
+
+vim.lsp.config('clangd', {
+  cmd = { 'clangd' },
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+})
+
+vim.lsp.config('rust_analyzer', {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
 })
 
 vim.lsp.enable(lsp_servers)
