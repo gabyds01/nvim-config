@@ -12,6 +12,8 @@ vim.pack.add({
   "https://github.com/junegunn/fzf.vim",
   "https://github.com/sbdchd/neoformat",
   "https://github.com/folke/tokyonight.nvim",
+  "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/tpope/vim-fugitive",
 })
 
 require "configs.treesitter"
@@ -23,3 +25,4 @@ require "configs.leap"
 require "configs.fzf"
 require "configs.neoformat"
 require "configs.tokyo"
+require "configs.gitsigns"
