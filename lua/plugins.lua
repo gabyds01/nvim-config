@@ -21,6 +21,7 @@ vim.pack.add({
   "https://github.com/folke/which-key.nvim",
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/kylechui/nvim-surround",
+  "https://github.com/akinsho/toggleterm.nvim",
 })
 
 require "configs.treesitter"
@@ -39,3 +40,4 @@ require "configs.comment"
 require "configs.which-key"
 require "configs.bufferline"
 require "configs.surround"
+require "configs.toggleterm"
