@@ -22,6 +22,7 @@ vim.pack.add({
   "https://github.com/akinsho/bufferline.nvim",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/akinsho/toggleterm.nvim",
+  "https://github.com/christoomey/vim-tmux-navigator",
 })
 
 require "configs.treesitter"
