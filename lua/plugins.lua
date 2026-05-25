@@ -27,6 +27,8 @@ vim.pack.add({
   "https://github.com/ibhagwan/fzf-lua",
   "https://github.com/rcarriga/nvim-notify",
   "https://github.com/epwalsh/pomo.nvim",
+  "https://github.com/kiyoon/magick.nvim",
+  "https://github.com/3rd/image.nvim",
 })
 
 require "configs.treesitter"
@@ -48,3 +50,4 @@ require "configs.surround"
 require "configs.toggleterm"
 require "configs.obsidian"
 require "configs.pomo"
+require "configs.image"
