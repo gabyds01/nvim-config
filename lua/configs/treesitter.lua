@@ -1,7 +1,9 @@
 local ts_parsers = {
   "lua",
   "python",
-  "haskell"
+  "haskell",
+  "markdown",
+  "markdown_inline"
 }
 
 local nts = require("nvim-treesitter")

@@ -25,6 +25,8 @@ vim.pack.add({
   "https://github.com/christoomey/vim-tmux-navigator",
   "https://github.com/epwalsh/obsidian.nvim",
   "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/rcarriga/nvim-notify",
+  "https://github.com/epwalsh/pomo.nvim",
 })
 
 require "configs.treesitter"
@@ -45,3 +47,4 @@ require "configs.bufferline"
 require "configs.surround"
 require "configs.toggleterm"
 require "configs.obsidian"
+require "configs.pomo"
