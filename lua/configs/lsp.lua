@@ -85,6 +85,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.config('lua', {
   cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
   settings = {
     Lua = {
       diagnostics = { globals = { 'vim' } },
@@ -96,6 +97,7 @@ vim.lsp.config('lua', {
 
 vim.lsp.config('bash', {
   cmd = { 'bash-language-server', 'start' },
+  filetypes = { 'sh', 'bash' },
 })
 
 vim.lsp.config('json', {
@@ -105,10 +107,12 @@ vim.lsp.config('json', {
 
 vim.lsp.config('pyright', {
   cmd = { 'pyright-langserver', '--stdio' },
+  filetypes = { 'python' },
   settings = {
     python = { analysis = { autoSearchPaths = true, useLibraryCodeForTypes = true, diagnosticMode = 'openFilesOnly' } },
   },
 })
+
 
 vim.lsp.config('hls', {
   cmd = { 'haskell-langserver', '--stdio' },
@@ -116,9 +120,13 @@ vim.lsp.config('hls', {
 })
 
 vim.lsp.config('clangd', {
-  cmd = { 'clangd' },
+  cmd = {
+    'clangd',
+    '--query-driver=/**/*',
+  },
   filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
 })
+
 
 vim.lsp.config('rust_analyzer', {
   cmd = { 'rust-analyzer' },
