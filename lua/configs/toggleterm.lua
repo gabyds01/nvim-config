@@ -1,6 +1,6 @@
 require("toggleterm").setup({
   size = 20,
-  open_mapping = [[<c-\>]], -- Ctrl+\ para abrir y cerrar la terminal flotante
+  open_mapping = [[<C-t>]], -- Ctrl+t to toggle terminal, avoiding tmux C-\ conflict
   hide_numbers = true,
   shade_terminals = true,
   shading_factor = 2,

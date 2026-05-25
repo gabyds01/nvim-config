@@ -29,6 +29,7 @@ vim.pack.add({
   "https://github.com/epwalsh/pomo.nvim",
   "https://github.com/kiyoon/magick.nvim",
   "https://github.com/3rd/image.nvim",
+  "https://github.com/anurag3301/nvim-platformio.lua",
 })
 
 require "configs.treesitter"
@@ -51,3 +52,4 @@ require "configs.toggleterm"
 require "configs.obsidian"
 require "configs.pomo"
 require "configs.image"
+require "configs.platformio"
