@@ -13,3 +13,5 @@ vim.o.swapfile = false
 vim.o.backup = false
 
 vim.o.scrolloff = 4
+vim.o.conceallevel = 2
+

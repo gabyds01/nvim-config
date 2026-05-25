@@ -24,6 +24,8 @@ vim.pack.add({
   "https://github.com/akinsho/toggleterm.nvim",
   "https://github.com/christoomey/vim-tmux-navigator",
   "https://github.com/kiddos/gemini.nvim",
+  "https://github.com/epwalsh/obsidian.nvim",
+  "https://github.com/ibhagwan/fzf-lua",
 })
 
 require "configs.treesitter"
@@ -44,3 +46,4 @@ require "configs.bufferline"
 require "configs.surround"
 require "configs.toggleterm"
 require "configs.gemini"
+require "configs.obsidian"
